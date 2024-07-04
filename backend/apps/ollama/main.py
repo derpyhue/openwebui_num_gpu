@@ -759,6 +759,9 @@ async def generate_chat_completion(
 
             if model_info.params.get("num_ctx", None):
                 payload["options"]["num_ctx"] = model_info.params.get("num_ctx", None)
+                
+            if model_info.params.get("num_gpu", None):
+                payload["options"]["num_gpu"] = model_info.params.get("num_gpu", None)
 
             if model_info.params.get("num_batch", None):
                 payload["options"]["num_batch"] = model_info.params.get(

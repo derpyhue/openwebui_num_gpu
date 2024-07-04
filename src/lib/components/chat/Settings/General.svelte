@@ -57,6 +57,7 @@
 		stop: null,
 		tfs_z: null,
 		num_ctx: null,
+		num_gpu: null,
 		num_batch: null,
 		num_keep: null,
 		max_tokens: null
@@ -312,6 +313,7 @@
 						top_p: params.top_p !== null ? params.top_p : undefined,
 						tfs_z: params.tfs_z !== null ? params.tfs_z : undefined,
 						num_ctx: params.num_ctx !== null ? params.num_ctx : undefined,
+						num_gpu: params.num_gpu !== null ? params.num_gpu : undefined,
 						num_batch: params.num_batch !== null ? params.num_batch : undefined,
 						num_keep: params.num_keep !== null ? params.num_keep : undefined,
 						max_tokens: params.max_tokens !== null ? params.max_tokens : undefined,

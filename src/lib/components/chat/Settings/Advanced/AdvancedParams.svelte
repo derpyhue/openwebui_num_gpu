@@ -21,6 +21,7 @@
 		top_p: null,
 		tfs_z: null,
 		num_ctx: null,
+		num_gpu: null,
 		num_batch: null,
 		num_keep: null,
 		max_tokens: null,
@@ -557,6 +558,51 @@
 				<div class="">
 					<input
 						bind:value={params.num_ctx}
+						type="number"
+						class=" bg-transparent text-center w-14"
+						min="-1"
+						step="1"
+					/>
+				</div>
+			</div>
+		{/if}
+	</div>
+	
+		<div class=" py-0.5 w-full justify-between">
+		<div class="flex w-full justify-between">
+			<div class=" self-center text-xs font-medium">{$i18n.t('GPU Layers')}</div>
+
+			<button
+				class="p-1 px-3 text-xs flex rounded transition"
+				type="button"
+				on:click={() => {
+					params.num_gpu = (params?.num_gpu ?? null) === null ? 100 : null;
+				}}
+			>
+				{#if (params?.num_gpu ?? null) === null}
+					<span class="ml-2 self-center">{$i18n.t('Default')}</span>
+				{:else}
+					<span class="ml-2 self-center">{$i18n.t('Custom')}</span>
+				{/if}
+			</button>
+		</div>
+
+		{#if (params?.num_gpu ?? null) !== null}
+			<div class="flex mt-0.5 space-x-2">
+				<div class=" flex-1">
+					<input
+						id="steps-range"
+						type="range"
+						min="-1"
+						max="999"
+						step="1"
+						bind:value={params.num_gpu}
+						class="w-full h-2 rounded-lg appearance-none cursor-pointer dark:bg-gray-700"
+					/>
+				</div>
+				<div class="">
+					<input
+						bind:value={params.num_gpu}
 						type="number"
 						class=" bg-transparent text-center w-14"
 						min="-1"
